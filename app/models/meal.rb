@@ -20,4 +20,6 @@ class Meal < ApplicationRecord
   validates :name, presence: true, inclusion: {in: %w[breakfast lunch dinner snack]}
 
   belongs_to :daily_log
+  has_many :meal_items
+  has_many :consumables, through: :meal_items
 end

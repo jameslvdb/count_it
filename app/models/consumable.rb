@@ -13,4 +13,6 @@
 #  updated_at         :datetime         not null
 #
 class Consumable < ApplicationRecord
+  has_many :meal_items
+  has_many :meals, through: :meal_items
 end
