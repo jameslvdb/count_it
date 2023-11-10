@@ -92,14 +92,17 @@ RSpec.describe "/daily_logs", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          date: Date.today,
+          weight: 225.0
+        }
       }
 
       it "updates the requested daily_log" do
         daily_log = DailyLog.create! valid_attributes
         patch daily_log_url(daily_log), params: {daily_log: new_attributes}
         daily_log.reload
-        skip("Add assertions for updated state")
+        expect(daily_log.weight).to eq(225.0)
       end
 
       it "redirects to the daily_log" do

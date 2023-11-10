@@ -94,14 +94,17 @@ RSpec.describe "/meals", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          name: "lunch",
+          daily_log_id: DailyLog.first.id
+        }
       }
 
       it "updates the requested meal" do
         meal = Meal.create! valid_attributes
         patch meal_url(meal), params: {meal: new_attributes}
         meal.reload
-        skip("Add assertions for updated state")
+        expect(meal.name).to eq("lunch")
       end
 
       it "redirects to the meal" do

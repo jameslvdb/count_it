@@ -100,14 +100,26 @@ RSpec.describe "/consumables", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          name: "Chocolate Chip Cookie",
+          calories: 200,
+          protein_in_grams: 20,
+          total_fat_in_grams: 20,
+          carbs_in_grams: 20,
+          sodium_in_mg: 20
+        }
       }
 
       it "updates the requested consumable" do
         consumable = Consumable.create! valid_attributes
         patch consumable_url(consumable), params: {consumable: new_attributes}
         consumable.reload
-        skip("Add assertions for updated state")
+        expect(consumable.name).to eq("Chocolate Chip Cookie")
+        expect(consumable.calories).to eq(200)
+        expect(consumable.protein_in_grams).to eq(20)
+        expect(consumable.total_fat_in_grams).to eq(20)
+        expect(consumable.carbs_in_grams).to eq(20)
+        expect(consumable.sodium_in_mg).to eq(20)
       end
 
       it "redirects to the consumable" do
