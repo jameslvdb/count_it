@@ -1,0 +1,17 @@
+<div id="<%= dom_id daily_log %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight:</strong>
+    <%= daily_log.weight %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Date:</strong>
+    <%= daily_log.date %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this daily log", daily_log, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this daily log", edit_daily_log_path(daily_log), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
