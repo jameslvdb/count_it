@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "daily_logs/edit", type: :view do
   let(:daily_log) {
     DailyLog.create!(
+      date: Date.today,
       weight: 1.5
     )
   }

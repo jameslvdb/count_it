@@ -9,5 +9,7 @@
 #  updated_at :datetime         not null
 #
 class DailyLog < ApplicationRecord
+  validates :date, presence: true
+
   has_many :meals, dependent: :destroy
 end

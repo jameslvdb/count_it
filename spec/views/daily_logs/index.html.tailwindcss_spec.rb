@@ -4,9 +4,11 @@ RSpec.describe "daily_logs/index", type: :view do
   before(:each) do
     assign(:daily_logs, [
       DailyLog.create!(
+        date: Date.today,
         weight: 2.5
       ),
       DailyLog.create!(
+        date: Date.yesterday,
         weight: 2.5
       )
     ])

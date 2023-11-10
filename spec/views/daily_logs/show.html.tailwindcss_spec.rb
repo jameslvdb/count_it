@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "daily_logs/show", type: :view do
   before(:each) do
     assign(:daily_log, DailyLog.create!(
+      date: Date.today,
       weight: 2.5
     ))
   end

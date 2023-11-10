@@ -17,11 +17,17 @@ RSpec.describe "/daily_logs", type: :request do
   # DailyLog. As you add validations to DailyLog, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      date: Date.today,
+      weight: 100.0
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      date: nil,
+      weight: nil
+    }
   }
 
   describe "GET /index" do

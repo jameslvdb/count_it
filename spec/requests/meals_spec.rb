@@ -17,11 +17,19 @@ RSpec.describe "/meals", type: :request do
   # Meal. As you add validations to Meal, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      name: "breakfast",
+      daily_log_id: DailyLog.create!(
+        date: Date.today
+      ).id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      name: "brunch",
+      daily_log_id: nil
+    }
   }
 
   describe "GET /index" do
