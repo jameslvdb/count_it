@@ -1,0 +1,37 @@
+<div id="<%= dom_id consumable %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= consumable.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Calories:</strong>
+    <%= consumable.calories %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Carbs in grams:</strong>
+    <%= consumable.carbs_in_grams %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Protein in grams:</strong>
+    <%= consumable.protein_in_grams %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Total fat in grams:</strong>
+    <%= consumable.total_fat_in_grams %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Sodium in mg:</strong>
+    <%= consumable.sodium_in_mg %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this consumable", consumable, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this consumable", edit_consumable_path(consumable), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
