@@ -17,11 +17,25 @@ RSpec.describe "/consumables", type: :request do
   # Consumable. As you add validations to Consumable, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      name: "Cookie",
+      calories: 100,
+      protein_in_grams: 10,
+      total_fat_in_grams: 10,
+      carbs_in_grams: 10,
+      sodium_in_mg: 10
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      name: nil,
+      calories: nil,
+      protein_in_grams: nil,
+      total_fat_in_grams: nil,
+      carbs_in_grams: nil,
+      sodium_in_mg: nil
+    }
   }
 
   describe "GET /index" do

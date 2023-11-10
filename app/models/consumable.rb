@@ -13,6 +13,9 @@
 #  updated_at         :datetime         not null
 #
 class Consumable < ApplicationRecord
+  validates :name, presence: true
+  validates :calories, :protein_in_grams, :total_fat_in_grams, :carbs_in_grams, :sodium_in_mg, numericality: {greater_than_or_equal_to: 0}
+
   has_many :meal_items
   has_many :meals, through: :meal_items
 end
