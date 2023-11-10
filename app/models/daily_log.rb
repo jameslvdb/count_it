@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class DailyLog < ApplicationRecord
+  has_many :meals, dependent: :destroy
 end
