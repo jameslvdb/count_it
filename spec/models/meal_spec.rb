@@ -19,5 +19,28 @@
 require "rails_helper"
 
 RSpec.describe Meal, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it "requires a name" do
+      meal = Meal.new(name: nil)
+
+      expect(meal).to be_invalid
+      expect(meal.errors.messages[:name]).to include("can't be blank")
+    end
+
+    it "requires a name that is one of the following: breakfast, lunch, dinner, snack" do
+      meal = Meal.new(name: "brunch")
+
+      expect(meal).to be_invalid
+      expect(meal.errors.messages[:name]).to include("is not included in the list")
+    end
+  end
+
+  describe "#date" do
+    it "returns the date of the daily log" do
+      daily_log = DailyLog.create(date: Date.today)
+      meal = Meal.create(name: "breakfast", daily_log_id: daily_log.id)
+
+      expect(meal.date).to eq(Date.today)
+    end
+  end
 end

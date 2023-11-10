@@ -22,4 +22,8 @@ class Meal < ApplicationRecord
   belongs_to :daily_log
   has_many :meal_items
   has_many :consumables, through: :meal_items
+
+  def date
+    daily_log.date
+  end
 end
