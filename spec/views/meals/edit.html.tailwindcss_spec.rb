@@ -3,8 +3,10 @@ require "rails_helper"
 RSpec.describe "meals/edit", type: :view do
   let(:meal) {
     Meal.create!(
-      name: "MyString",
-      daily_log: nil
+      name: "breakfast",
+      daily_log: DailyLog.create!(
+        date: Date.today
+      )
     )
   }
 

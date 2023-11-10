@@ -3,8 +3,10 @@ require "rails_helper"
 RSpec.describe "meals/show", type: :view do
   before(:each) do
     assign(:meal, Meal.create!(
-      name: "Name",
-      daily_log: nil
+      name: "dinner",
+      daily_log: DailyLog.create!(
+        date: Date.today
+      )
     ))
   end
 
