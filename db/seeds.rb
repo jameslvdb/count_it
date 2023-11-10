@@ -31,3 +31,7 @@ Consumable.find_or_create_by!(name: "Chick-Fil-A Waffle Fries (Medium)") do |c|
   c.protein_in_grams = 5
   c.sodium_in_mg = 240
 end
+
+DailyLog.find_or_create_by!(date: "2023-11-10") do |dl|
+  dl.weight = 349.2
+end
