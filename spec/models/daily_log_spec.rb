@@ -11,6 +11,11 @@
 require "rails_helper"
 
 RSpec.describe DailyLog, type: :model do
+  it "has a valid factory" do
+    daily_log = build(:daily_log)
+    expect(daily_log).to be_valid
+  end
+
   describe "validations" do
     it "is valid with a date and weight" do
       daily_log = DailyLog.new(date: Date.today, weight: 150.0)

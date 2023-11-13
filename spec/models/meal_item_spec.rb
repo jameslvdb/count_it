@@ -22,5 +22,20 @@
 require "rails_helper"
 
 RSpec.describe MealItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    meal_item = build(:meal_item)
+    expect(meal_item).to be_valid
+  end
+
+  describe "associations" do
+    it "is invalid without a meal" do
+      meal_item = build(:meal_item, meal: nil)
+      expect(meal_item).to_not be_valid
+    end
+
+    it "is invalid without a consumable" do
+      meal_item = build(:meal_item, consumable: nil)
+      expect(meal_item).to_not be_valid
+    end
+  end
 end

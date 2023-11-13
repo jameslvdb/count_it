@@ -15,6 +15,11 @@
 require "rails_helper"
 
 RSpec.describe Consumable, type: :model do
+  it "has a valid factory" do
+    consumable = build(:consumable)
+    expect(consumable).to be_valid
+  end
+
   describe "validations" do
     it "is valid with a name, calories, protein, fat, carbs, and sodium" do
       consumable = Consumable.new(name: "Banana", calories: 100, protein_in_grams: 1, total_fat_in_grams: 1, carbs_in_grams: 1, sodium_in_mg: 1)

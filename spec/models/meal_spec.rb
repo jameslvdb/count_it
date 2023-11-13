@@ -19,6 +19,11 @@
 require "rails_helper"
 
 RSpec.describe Meal, type: :model do
+  it "has a valid factory" do
+    meal = build(:meal)
+    expect(meal).to be_valid
+  end
+
   describe "validations" do
     it "requires a name" do
       meal = Meal.new(name: nil)
