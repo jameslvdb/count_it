@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :meals
   resources :daily_logs
   resources :consumables
+
+  get "daily_logs/today", to: "daily_logs#show", as: "today"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

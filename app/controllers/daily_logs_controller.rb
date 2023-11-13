@@ -61,7 +61,11 @@ class DailyLogsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_daily_log
-    @daily_log = DailyLog.find(params[:id])
+    @daily_log = if params[:id] == "today"
+      DailyLog.find_by(date: Date.today)
+    else
+      DailyLog.find(params[:id])
+    end
   end
 
   # Only allow a list of trusted parameters through.

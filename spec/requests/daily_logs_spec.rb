@@ -44,6 +44,12 @@ RSpec.describe "/daily_logs", type: :request do
       get daily_log_url(daily_log)
       expect(response).to be_successful
     end
+
+    it "renders a successful response for today" do
+      DailyLog.create! valid_attributes
+      get daily_log_url("today")
+      expect(response).to be_successful
+    end
   end
 
   describe "GET /new" do
