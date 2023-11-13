@@ -19,7 +19,7 @@ RSpec.describe "/daily_logs", type: :request do
   let(:valid_attributes) {
     {
       date: Date.today,
-      weight: 100.0
+      weight: nil
     }
   }
 
