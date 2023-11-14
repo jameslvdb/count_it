@@ -23,6 +23,13 @@ RSpec.describe "/daily_logs", type: :request do
     }
   }
 
+  let(:valid_attributes_for_today) {
+    {
+      date: Date.today,
+      weight: nil
+    }
+  }
+
   let(:invalid_attributes) {
     {
       date: nil,
@@ -46,6 +53,12 @@ RSpec.describe "/daily_logs", type: :request do
     end
 
     it "renders a successful response for today" do
+      DailyLog.create! valid_attributes_for_today
+      get daily_log_url("today")
+      expect(response).to be_successful
+    end
+
+    it "creates a new DailyLog for today if one does not exist" do
       expect {
         get daily_log_url("today")
       }.to change { DailyLog.count }.by(1)
