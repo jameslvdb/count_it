@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  # get 'registrations/new'
+  # get 'registrations/create'
   get "welcome/index"
   resources :meals
   resources :daily_logs
   resources :consumables
+
+  resource :registration
+  resource :session
+  resource :password_reset
+  resource :password
 
   get "daily_logs/today", to: "daily_logs#show", as: "today"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
