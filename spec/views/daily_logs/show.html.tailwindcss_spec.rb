@@ -14,6 +14,11 @@ RSpec.describe "daily_logs/show", type: :view do
       render
       expect(rendered).to match(/Record your weight/)
     end
+
+    it "should say 'Not recorded' for the weight" do
+      render
+      expect(rendered).to match(/Not recorded/)
+    end
   end
 
   describe "when the daily log has a weight" do

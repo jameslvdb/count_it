@@ -5,8 +5,8 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Date:</strong>
-    <%= daily_log.date %>
+    <strong class="block font-medium mb-1">Weight:</strong>
+    <%= daily_log.weight || "Not recorded" %>
   </p>
 
   <% if action_name != "show" %>
