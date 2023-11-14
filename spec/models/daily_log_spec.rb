@@ -18,22 +18,22 @@ RSpec.describe DailyLog, type: :model do
 
   describe "validations" do
     it "is valid with a date and weight" do
-      daily_log = DailyLog.new(date: Date.today, weight: 150.0)
+      daily_log = build(:daily_log, date: Date.today, weight: 150.0)
       expect(daily_log).to be_valid
     end
 
     it "is invalid without a date" do
-      daily_log = DailyLog.new(weight: 150.0)
+      daily_log = build(:daily_log, date: nil)
       expect(daily_log).to_not be_valid
     end
 
     it "is valid without a weight" do
-      daily_log = DailyLog.new(date: Date.today)
+      daily_log = build(:daily_log, weight: nil)
       expect(daily_log).to be_valid
     end
 
     it "is invalid with a weight less than 0" do
-      daily_log = DailyLog.new(date: Date.today, weight: -1.0)
+      daily_log = build(:daily_log, weight: -1.0)
       expect(daily_log).to_not be_valid
     end
   end

@@ -26,14 +26,14 @@ RSpec.describe Meal, type: :model do
 
   describe "validations" do
     it "requires a name" do
-      meal = Meal.new(name: nil)
+      meal = build(:meal, name: nil)
 
       expect(meal).to be_invalid
       expect(meal.errors.messages[:name]).to include("can't be blank")
     end
 
     it "requires a name that is one of the following: breakfast, lunch, dinner, snack" do
-      meal = Meal.new(name: "brunch")
+      meal = build(:meal, name: "brunch")
 
       expect(meal).to be_invalid
       expect(meal.errors.messages[:name]).to include("is not included in the list")
@@ -42,8 +42,8 @@ RSpec.describe Meal, type: :model do
 
   describe "#date" do
     it "returns the date of the daily log" do
-      daily_log = DailyLog.create(date: Date.today)
-      meal = Meal.create(name: "breakfast", daily_log_id: daily_log.id)
+      daily_log = build(:daily_log, date: Date.today)
+      meal = build(:meal, daily_log: daily_log)
 
       expect(meal.date).to eq(Date.today)
     end
