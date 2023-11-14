@@ -2,11 +2,10 @@ require "rails_helper"
 
 RSpec.describe "meals/edit", type: :view do
   let(:meal) {
-    Meal.create!(
+    build_stubbed(
+      :meal,
       name: "breakfast",
-      daily_log: DailyLog.create!(
-        date: Date.today
-      )
+      daily_log: build_stubbed(:daily_log, date: Date.today)
     )
   }
 

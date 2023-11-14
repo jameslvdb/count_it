@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe "consumables/edit", type: :view do
   let(:consumable) {
-    Consumable.create!(
+    build_stubbed(
+      :consumable,
       name: "MyString",
       calories: 1,
       carbs_in_grams: 1,

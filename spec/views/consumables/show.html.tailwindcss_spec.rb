@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe "consumables/show", type: :view do
   before(:each) do
-    assign(:consumable, Consumable.create!(
+    assign(:consumable, build_stubbed(
+      :consumable,
       name: "Name",
       calories: 2,
       carbs_in_grams: 3,

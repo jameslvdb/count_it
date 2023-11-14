@@ -3,7 +3,8 @@ require "rails_helper"
 RSpec.describe "consumables/index", type: :view do
   before(:each) do
     assign(:consumables, [
-      Consumable.create!(
+      build_stubbed(
+        :consumable,
         name: "Name",
         calories: 2,
         carbs_in_grams: 3,
@@ -11,7 +12,8 @@ RSpec.describe "consumables/index", type: :view do
         total_fat_in_grams: 5,
         sodium_in_mg: 6
       ),
-      Consumable.create!(
+      build_stubbed(
+        :consumable,
         name: "Name",
         calories: 2,
         carbs_in_grams: 3,

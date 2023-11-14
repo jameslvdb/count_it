@@ -2,11 +2,10 @@ require "rails_helper"
 
 RSpec.describe "meals/show", type: :view do
   before(:each) do
-    assign(:meal, Meal.create!(
+    assign(:meal, build_stubbed(
+      :meal,
       name: "dinner",
-      daily_log: DailyLog.create!(
-        date: Date.today
-      )
+      daily_log: build_stubbed(:daily_log, date: Date.today)
     ))
   end
 
