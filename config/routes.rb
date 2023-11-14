@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # get 'password_resets/new'
+  # get 'password_resets/create'
+  # get "passwords/edit"
+  # get "passwords/update"
+  # get 'sessions/new'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
   # get 'registrations/new'
   # get 'registrations/create'
   get "welcome/index"
