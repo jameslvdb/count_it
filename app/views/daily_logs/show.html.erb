@@ -6,6 +6,15 @@
 
     <%= render @daily_log %>
 
+    <% if @daily_log.weight.nil? %>
+      <%= link_to "Record your weight", new_daily_log_path(@daily_log), class:
+      "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% else %>
+      <%= link_to "Edit weight", edit_daily_log_path(@daily_log,
+      @daily_log.weight), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100
+      inline-block font-medium" %>
+    <% end %>
+
     <%= link_to "Edit this daily_log", edit_daily_log_path(@daily_log), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to "Destroy this daily_log", daily_log_path(@daily_log), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
