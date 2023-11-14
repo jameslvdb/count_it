@@ -12,8 +12,33 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+    <nav class="py-5 px-3 flex flex-row-reverse gap-4">
+      <% if user_signed_in? %>
+        <%= link_to "Edit Password", edit_password_path, class: "rounded-md
+        bg-gray-700 text-white py-3 px-3 hover:bg-gray-900" %>
+      <%= button_to "Log out", session_path, method: :delete, class: "rounded-md
+      bg-gray-700 text-white py-3 px-3 hover:bg-gray-900" %>
+      <% else %>
+      <%= link_to "Sign Up", new_registration_path, class: "rounded-md
+      bg-gray-700 text-white py-3 px-3 hover:bg-gray-900" %>
+      <%= link_to "Log in", new_session_path, class: "rounded-md bg-gray-700
+      text-white py-3 px-3 hover:bg-gray-900" %>
+      <% end %>
+    </nav>
+    <div>
+      <%= notice %>
+      <%= alert %>
+    </div>
+    <main class="container mx-auto mt-16 px-5 flex">
+
+      <br>
+
+
+      <br>
+
+      <div>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
